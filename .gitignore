@@ -1,0 +1,6 @@
+/.idea/
+
+/libs/pms-commons-lib/target/
+/libs/pms-models-lib/target/
+
+/microservices/ms-doctor/target/
