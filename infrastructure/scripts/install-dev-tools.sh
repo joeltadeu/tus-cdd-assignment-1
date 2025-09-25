@@ -41,6 +41,22 @@ install_if_missing git git "Git"
 # Install Java 21 (Amazon Corretto)
 install_if_missing java java-21-amazon-corretto-devel "Java 21"
 
+# Detect Java 21 installation path and set JAVA_HOME
+JAVA_PATH=$(dirname "$(dirname "$(readlink -f "$(command -v java)")")")
+if [[ "$JAVA_PATH" == *"java-21"* ]]; then
+    echo "Setting JAVA_HOME to $JAVA_PATH"
+    export JAVA_HOME="$JAVA_PATH"
+    export PATH="$JAVA_HOME/bin:$PATH"
+
+    # Persist JAVA_HOME for future sessions
+    if ! grep -q "JAVA_HOME" /etc/profile.d/java21.sh 2>/dev/null; then
+        echo "export JAVA_HOME=$JAVA_HOME" | sudo tee /etc/profile.d/java21.sh
+        echo "export PATH=$JAVA_HOME/bin:$PATH" | sudo tee -a /etc/profile.d/java21.sh
+    fi
+else
+    echo "Warning: Could not detect Java 21 installation path!"
+fi
+
 # Install Maven
 install_if_missing mvn maven "Maven"
 
