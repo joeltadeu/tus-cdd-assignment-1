@@ -1,11 +1,4 @@
 database:
-  url: jdbc:mysql://${DB_HOST}:3306/pms-doctor?useSSL=false&useTimezone=true&serverTimezone=UTC
+  url: jdbc:mysql://${DB_HOST}:3306/pms-doctor?createDatabaseIfNotExist=true&useSSL=false&useTimezone=true&serverTimezone=UTC
   username: ${DB_USERNAME}
   password: ${DB_PASSWORD}
-
-spring:
-  jpa:
-    properties:
-      hibernate:
-        format_sql: true
-    show-sql: true

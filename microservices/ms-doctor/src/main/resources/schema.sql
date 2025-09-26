@@ -1,6 +1,3 @@
--- Create schema if it doesn't exist
-CREATE SCHEMA IF NOT EXISTS `pms-doctor`;
-
 -- Use the schema
 USE `pms-doctor`;
 
