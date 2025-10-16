@@ -30,6 +30,7 @@
         <module>libs/pms-commons-lib</module>
         <module>libs/pms-models-lib</module>
         <module>microservices/ms-doctor</module>
+        <module>performance/doctor-performance-tests</module>
     </modules>
 
     <dependencies>

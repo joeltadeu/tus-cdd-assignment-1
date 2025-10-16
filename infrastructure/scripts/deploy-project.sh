@@ -1,6 +1,14 @@
 #!/bin/bash
 set -euo pipefail
 
+# Environment variables for database configuration
+export DB_HOST=mwed.sdo.sd
+export DB_USERNAME=admin
+export DB_PASSWORD=123
+
+echo "Using DB_HOST: $DB_HOST"
+echo "Using DB_USERNAME: $DB_USERNAME"
+
 SERVICE_DIR="microservices/ms-doctor"
 JAR_NAME="doctor-0.0.1-SNAPSHOT.jar"
 PROFILE="aws"
